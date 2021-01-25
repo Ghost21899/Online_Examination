@@ -1,14 +1,10 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <title>Login</title> 
-</head> 
-<body> 
+{% extends "home/base.html" %}
+
+{% block title %}Upload image{% endblock %}
+{% block body %} 
     <form method = "post" enctype="multipart/form-data"> 
         {% csrf_token %} 
         {{ form.as_p }} 
-        <button type="submit">Upload</button> 
+        <button type="submit">Register</button> 
     </form> 
-</body> 
-</html> 
+{% endblock %}

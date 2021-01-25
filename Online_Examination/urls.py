@@ -18,12 +18,15 @@ from django.urls import path, include
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
+from login_module.views import user_login, user_logout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('home/', include('home.urls')),
     path('loginmodule/', include('login_module.urls')),
+    path('login/', user_login),
+    path('logout/', user_logout),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, 
