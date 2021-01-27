@@ -30,7 +30,7 @@ class Registrationform(UserCreationForm):
 
 class RegistrationImage(forms.ModelForm):
     class Meta:
-        model=userProfiles
+        model=UserProfile
         fields=[
             'city',
             'country',
