@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect 
 from .forms import *
 from django.contrib.auth import authenticate, login
-from django.contrib import auth
+from django.contrib import auth, messages
 import os
 from django.contrib.auth.decorators import login_required
 from login_module.models import UserProfile
@@ -64,15 +64,25 @@ def user_login(request):
                     user = authenticate(request,username=username,password=password)
                     if user is not None:
                         try:
-                            if facedect(user.userprofile.img.url):
-                                login(request,user)
+                            if user.userprofile.img:
+                                if facedect(user.userprofile.img.url):
+                                    login(request, user)
+                                    messages.info(request, 'Logging in')
+                                else:
+                                    messages.error(request, 'Invalid user')
                             else:
-                                print("Wrong Person")
-                        except:
-                            print("No face detected")
+                                login(request,user)
+                                messages.warning(request, 'Profile Photo Not detected')
+                                return HttpResponseRedirect("/imgreg")
+                            
+                        except Exception as e:
+                            print(e)
+                            messages.error(request, 'No faces Detected')
+                            #login(request,user)
+                            #return HttpResponseRedirect("/imgreg")
                         return HttpResponseRedirect('/home')
                 except:
-                    print("Exception")
+                    messages.error(request, 'Error Authenticating user')
                     return HttpResponseRedirect('/login')
         else:
             form = LoginForm()
