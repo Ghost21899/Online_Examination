@@ -29,6 +29,7 @@ class Registrationform(UserCreationForm):
         return user
 
 class RegistrationImage(forms.ModelForm):
+    img_id = forms.UUIDField(widget=forms.HiddenInput(), initial=uuid.uuid4())
     class Meta:
         model=UserProfile
         fields=[

@@ -36,7 +36,8 @@ def user_registration_image(request):
             if form.is_valid():
                 form.save()
                 messages.info(request, "User succesfully registered")
-                return HttpResponseRedirect('/logout')
+                auth.logout(request)
+                return HttpResponseRedirect('/login')
         except:
             messages.error(request, "Error occured")
             
