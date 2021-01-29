@@ -28,6 +28,7 @@ urlpatterns = [
     path('login/', user_login),
     path('logout/', user_logout),
     path('imgreg/', user_registration_image),
+    path('monitor/', include('monitor.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, 

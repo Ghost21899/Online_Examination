@@ -1,5 +1,7 @@
 {% extends "home/base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
+
 
 {% block title %}Register{% endblock %}
 {% block body %} 
@@ -8,7 +10,7 @@
         {% csrf_token %} 
         {{ form|crispy }} 
         <div class="col text-right">
-            <button type="submit" class="btn btn-dark col col-lg-2">Next</button> 
+            <button type="submit" class="btn btn-light col col-lg-2">Next</button> 
         </div>
     </form> 
 </div>

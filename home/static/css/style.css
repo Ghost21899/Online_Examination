@@ -1,0 +1,14 @@
+#toastMessage {
+    position: absolute; 
+    top: 0; 
+    right: 0;
+}
+
+.bottomBtn{
+    position: absolute;
+    bottom: 0;
+}
+
+#hint_id_username, #hint_id_password2, #hint_id_password1{
+    color: white !important;
+}

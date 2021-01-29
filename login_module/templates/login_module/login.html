@@ -1,35 +1,31 @@
 {% extends "home/base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block title %}Login{% endblock %}
 {% block body %} 
 <div class="container">
-    <form method = "post" enctype="multipart/form-data"> 
+    <form name="myForm" method = "post" enctype="multipart/form-data" onsubmit="return validateForm()"> 
         {% csrf_token %} 
         {{ form|crispy }} 
          
         <div class="col text-center">
-            <button class="btn btn-dark active col col-lg-2 p-2 m-auto" type="submit" data-toggle="modal" data-target="#loginModal">Login</button>
-            <a href="/loginmodule/register" class="btn btn-dark active col col-lg-2 offset-md-1 p-2" role="button">Register</a>
+            <button class="btn btn-light col col-lg-2 p-2 m-auto" type="submit" data-toggle="modal" data-target="#loginModal">Login</button>
+            <a href="/loginmodule/register" class="btn btn-light col col-lg-2 offset-md-1 p-2" role="button">Register</a>
         </div>
     </form> 
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+<div class="modal fade " id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Logging in</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <h5 class="modal-title text-dark" id="exampleModalLabel">Logging in</h5>
         </button>
       </div>
-      <div class="modal-body">
-        Please be patient while we log you in.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+      <div class="modal-body text-dark">
+        Please be patient while we try log you in.
       </div>
     </div>
   </div>
