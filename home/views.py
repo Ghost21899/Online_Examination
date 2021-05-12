@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 import face_recognition
-from cv2 import cv2 
+import cv2 
 import os
 
 # Create your views here.

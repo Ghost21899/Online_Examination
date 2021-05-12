@@ -67,16 +67,18 @@ def user_login(request):
                     if user is not None:
                         try:
                             if user.userprofile.img:
-                                if dect(user.userprofile.img.url):
+                                face_val = dect(user.userprofile.img.url)
+                                if face_val==1:
                                     login(request, user)
                                     messages.info(request, 'Logged in')
+                                elif face_val==2:
+                                    messages.error(request, 'Camera not found')
                                 else:
                                     messages.error(request, 'Invalid user')
                             else:
                                 login(request,user)
                                 messages.warning(request, 'Profile Photo Not detected')
                                 return HttpResponseRedirect("/imgreg")
-                            
                         except:
                             messages.error(request, 'No faces Detected')
                         return HttpResponseRedirect('/home')

@@ -1,14 +1,17 @@
-from cv2 import cv2 
+import cv2 
 import face_recognition
 import os
 
 def dect(loc):
-    cam = cv2.VideoCapture(0) 
-    cam.set(3, 1280)
-    cam.set(4, 720)
-    for i in range(30):
-        temp = cam.read()  
-    s, img = cam.read()
+    try:
+        cam = cv2.VideoCapture(0) 
+        cam.set(3, 1280)
+        cam.set(4, 720)
+        for i in range(30):
+            temp = cam.read()  
+        s, img = cam.read()
+    except:
+        return 2
     if s:   
         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         MEDIA_ROOT = os.path.join(BASE_DIR, '') 
@@ -26,6 +29,6 @@ def dect(loc):
         
         print(check)
         if check[0]:
-            return True
+            return 1
         else :
-            return False  
+            return 0  
