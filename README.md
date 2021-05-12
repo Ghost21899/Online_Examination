@@ -45,3 +45,11 @@ django-crispy-forms     | 1.11.2
 3. `python manage.py makemigrations`
 4. `python manage.py migrate`
 5. `python manage.py runserver`
+
+
+## Screenshots
+* Registering a new user
+![image\screenshots\registering](https://github.com/Ghost21899/Online_Examination/blob/master/image/Screenshots/Registering.png)
+
+* Looging in
+![image\screenshots\logging-in](https://github.com/Ghost21899/Online_Examination/blob/master/image/Screenshots/Logging-in.gif)
