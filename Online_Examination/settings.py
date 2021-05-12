@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Online_Exam_Database',
 		'USER': 'root',
-		'PASSWORD': 'Ghost@99',
+		'PASSWORD': 'root@123',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
